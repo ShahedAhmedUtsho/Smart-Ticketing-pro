@@ -37,11 +37,20 @@ const numberInputValue = document.getElementById('number');
 const submitButton = document.getElementById('next');
 let number = document.getElementById('number')
 
+
+
+
+
+
 for (let ticketButton of ticketButtonList) {
   let ticketButtonInnerText = ticketButton.innerText;
+
+
+  
   ticketButton.addEventListener('click', function () {
 
-
+    document.getElementById('discountList-2').classList.add('hidden')
+    document.getElementById('discountList-1').classList.add('hidden')
      if (ticketSelectCount <= 4 && !ticketButton.classList.contains('bg-[#1AD100]', 'text-white')) {
         //   add total price and show on page
         totalPrice = totalPrice + 550;
@@ -381,24 +390,35 @@ if(inputValue === couponOne){
 
 function couponOneCalculation(number){
   
+  document.getElementById('applyAndInput').classList.add('hidden')
 
   let discountPrice = (grandTotal * 15 / 100)
-  grandTotal =  grandTotal - discountPrice 
+  grandTotal =  grandTotal - discountPrice ;
 
-  changeInnerText('grand_Total', grandTotal)
-
-
-grandTotal = totalPrice
+  changeInnerText('coupon1'," - " + discountPrice);
+  changeInnerText('grand_Total', grandTotal);
 
 
+grandTotal = totalPrice;
+
+changeInnerText('coupon2',"000");
+document.getElementById('discountList-1').classList.remove('hidden')
+  document.getElementById('discountList-2').classList.add('hidden')
 
 }
 function couponTwoCalculation(number){
+  document.getElementById('applyAndInput').classList.add('hidden')
   
-  let discountPrice = (grandTotal * 20 / 100)
-  grandTotal =  grandTotal - discountPrice 
+  
+  let discountPrice = (grandTotal * 20 / 100);
+  grandTotal =  grandTotal - discountPrice ;
+  changeInnerText('coupon2'," - " + discountPrice);
 
-  changeInnerText('grand_Total', grandTotal)
-  grandTotal = totalPrice
+  changeInnerText('grand_Total', grandTotal);
+  grandTotal = totalPrice;
+  changeInnerText('coupon1', "000")
+
+  document.getElementById('discountList-2').classList.remove('hidden')
+  document.getElementById('discountList-1').classList.add('hidden')
 
 }

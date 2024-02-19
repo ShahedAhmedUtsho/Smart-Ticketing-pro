@@ -639,20 +639,56 @@
                </article>
                <article class=" text-right col-span-1 ">
                   <h6 class="inter text-base font-medium text-[#030712]">
-                     BDT  <span id="total_Price">0000</span>
+                     BDT  <span id="total_Price">000</span>
                   </h6>
                </article>
 
             </li>
+            
 
-            <li class=" p-2  grid grid-cols-4 bg-white justify-center items-center rounded-xl mb-5 " >
+            <li class=" p-2  grid grid-cols-4 bg-white justify-center items-center rounded-xl mb-5 " id="applyAndInput" >
                <input type="text"  class="font-semibold text-lg px-4 py-2 border-none outline-none col-span-3 h-full " placeholder="Have any Coupon?" id="applyInput">
                <button type="button" class="btn col-span-1 bg-[#1DD100] text-base text-white inter font-medium" disabled id="apply">
                   Apply
                </button>
 
 
-            </li  >
+            </li>
+
+
+            <li class="pb-4  grid grid-cols-2  hidden" id="discountList-1">
+              
+               <article class=" col-span-1 ">
+                  <h6 class="inter text-sm font-normal text-[#030712]">
+                     Discount Amount
+                  </h6>
+   
+               </article>
+               <article class=" text-right col-span-1 ">
+                  <h6 class="inter text-sm font-normal text-[#030712]">
+                     BDT  <span id="coupon1">000</span>
+                  </h6>
+               </article>
+
+            </li>
+
+            <li class="pb-4  grid grid-cols-2 hidden " id="discountList-2"> 
+              
+               <article class=" col-span-1 ">
+                  <h6 class="inter text-sm font-normal text-[#030712]">
+                     Discount Amount
+                  </h6>
+   
+               </article>
+               <article class=" text-right col-span-1 ">
+                  <h6 class="inter text-sm font-normal text-[#030712]">
+                     BDT  <span id="coupon2">000</span>
+                  </h6>
+               </article>
+
+            </li>
+
+
             <li class="pb-4  grid grid-cols-2  ">
               
                <article class=" col-span-1 ">
@@ -663,11 +699,12 @@
                </article>
                <article class=" text-right col-span-1 ">
                   <h6 class="inter text-base font-medium text-[#030712]">
-                     BDT  <span id="grand_Total">0000</span>
+                     BDT  <span id="grand_Total">000</span>
                   </h6>
                </article>
 
             </li>
+            
 
    
          </ul>
