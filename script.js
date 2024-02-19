@@ -48,9 +48,19 @@ for (let ticketButton of ticketButtonList) {
 
   
   ticketButton.addEventListener('click', function () {
+if(seatCount>=4 && !ticketButton.classList.contains('bg-[#1AD100]', 'text-white')){
+  alert("Maximum 4 tickets allowed per transaction")
+}
+// extra code after apply cpopon
 
     document.getElementById('discountList-2').classList.add('hidden')
     document.getElementById('discountList-1').classList.add('hidden')
+
+
+// extra code after apply cpopon
+
+
+
      if (ticketSelectCount <= 4 && !ticketButton.classList.contains('bg-[#1AD100]', 'text-white')) {
         //   add total price and show on page
         totalPrice = totalPrice + 550;
@@ -379,7 +389,7 @@ if(inputValue === couponOne){
 }else if(inputValue === couponTwo){
   couponTwoCalculation(number)
 }else{
-  console.log("else")
+  alert("your coupon is invalid")
 }
 
 
