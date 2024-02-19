@@ -1,4 +1,3 @@
-
 // innerText Chenge function
 
 
@@ -38,32 +37,38 @@ const submitButton = document.getElementById('next');
 let number = document.getElementById('number')
 
 
-
-
+//  access all the button by for of loop 
 
 
 for (let ticketButton of ticketButtonList) {
   let ticketButtonInnerText = ticketButton.innerText;
 
 
-  
   ticketButton.addEventListener('click', function () {
-if(seatCount>=4 && !ticketButton.classList.contains('bg-[#1AD100]', 'text-white')){
-  alert("Maximum 4 tickets allowed per transaction")
-}
-// extra code after apply cpopon
-
-    document.getElementById('discountList-2').classList.add('hidden')
-    document.getElementById('discountList-1').classList.add('hidden')
 
 
-// extra code after apply cpopon
+     if (seatCount >= 4 && !ticketButton.classList.contains('bg-[#1AD100]', 'text-white')) {
+        alert("Maximum 4 tickets allowed per transaction")
+     }
+     // extra code after apply cpopon
 
+     document.getElementById('discountList-2').classList.add('hidden')
+     document.getElementById('discountList-1').classList.add('hidden')
+
+
+     // extra code after apply cpopon
+
+
+     // Adding total price and appending Element 
 
 
      if (ticketSelectCount <= 4 && !ticketButton.classList.contains('bg-[#1AD100]', 'text-white')) {
+
+
+        Text
         //   add total price and show on page
         totalPrice = totalPrice + 550;
+
 
         // grandTotal 
 
@@ -78,6 +83,9 @@ if(seatCount>=4 && !ticketButton.classList.contains('bg-[#1AD100]', 'text-white'
 
         changeInnerText('total_Price', totalPrice);
         //   add total price and show on page
+
+
+        // Creating selected button list item
 
 
         ticketButton.classList.add('bg-[#1AD100]', 'text-white');
@@ -193,36 +201,24 @@ if(seatCount>=4 && !ticketButton.classList.contains('bg-[#1AD100]', 'text-white'
         totalSeatsLeft = totalSeatsLeft - 1;
         changeInnerText('seatLeft', totalSeatsLeft)
         ticketSelectCount++;
-        //   Count seat and display increase on page
-        // next button disable and enable 
-        // if (seatCount !==0){
 
-        //   let applyButton = document.getElementById('next');
-        //   applyButton.disabled = false ;
-
-
-        // }else{
-        //   let applyButton = document.getElementById('next');
-        //   applyButton.disabled = true ;
-
-        //        }
         // next button disable and enable 
 
 
-        // apply button Enable on fore sits complit
+        // apply button Enable on 4 sits complit
 
         if (seatCount === 4) {
            let applyButton = document.getElementById('apply');
            applyButton.disabled = false;
-           
 
 
         }
 
-        // apply button Enable on fore sits
+        // apply button Enable on 4 sits
 
 
         // normal cheak on clik button
+        //   submit  Button disable and enable
 
         if (seatCount > 0 && numberInputValue.value.length > 0) {
            submitButton.disabled = false;
@@ -231,7 +227,7 @@ if(seatCount>=4 && !ticketButton.classList.contains('bg-[#1AD100]', 'text-white'
         }
 
 
-        // input cheke
+        // Form submit, next button, visible and enable
 
         numberInputValue.addEventListener('input', function () {
 
@@ -257,7 +253,7 @@ if(seatCount>=4 && !ticketButton.classList.contains('bg-[#1AD100]', 'text-white'
 
 
         //    remove class list 
-
+        //  creating class name Of selected seat Buttons For again hide it
 
         let ticketButtonInnerText = ticketButton.innerText;
         let removeClassList = "." + ticketButtonInnerText;
@@ -325,28 +321,6 @@ if(seatCount>=4 && !ticketButton.classList.contains('bg-[#1AD100]', 'text-white'
      });
 
 
-     // / Disable and enable next button submit
-
-
-     // next button disable and enable 
-
-     //  if (seatCount ===0){
-
-     //   let applyButton = document.getElementById('next');
-     //   applyButton.disabled = true ;
-
-
-     // }
-     // next button disable and enable 
-
-
-
-
-
-
-
-
-
 
 
   })
@@ -354,19 +328,15 @@ if(seatCount>=4 && !ticketButton.classList.contains('bg-[#1AD100]', 'text-white'
 }
 
 
-//  document.getElementById('next').addEventListener('click', function() {
-//   window.location.href = "./pages/Success.html";
-// });
 
 
+//  coupon section coupon apply
 
 
+let applyButton = document.getElementById('apply');
+applyButton.addEventListener('click', couponFinder);
 
-
-
-
-let applyButton = document.getElementById('apply')
-applyButton.addEventListener('click',couponFinder)
+// Change page after submit from or confirm Ticket
 
 function goContinue() {
 
@@ -378,51 +348,52 @@ function goContinue() {
 }
 
 
-function couponFinder(number){
-let inputValue =document.getElementById('applyInput').value;
-let couponOne =  document.getElementById('couponOne').innerText;
-let couponTwo= document.getElementById('couponTwo').innerText;
+// Coupon Discount calculations
+
+function couponFinder(number) {
+  let inputValue = document.getElementById('applyInput').value;
+  let couponOne = document.getElementById('couponOne').innerText;
+  let couponTwo = document.getElementById('couponTwo').innerText;
 
 
-if(inputValue === couponOne){
-  couponOneCalculation(number)
-}else if(inputValue === couponTwo){
-  couponTwoCalculation(number)
-}else{
-  alert("your coupon is invalid")
+  if (inputValue === couponOne) {
+     couponOneCalculation(number)
+  } else if (inputValue === couponTwo) {
+     couponTwoCalculation(number)
+  } else {
+     alert("your coupon is invalid")
+  }
+
+
 }
 
 
- 
-}
+function couponOneCalculation(number) {
 
-
-
-function couponOneCalculation(number){
-  
   document.getElementById('applyAndInput').classList.add('hidden')
 
   let discountPrice = (grandTotal * 15 / 100)
-  grandTotal =  grandTotal - discountPrice ;
+  grandTotal = grandTotal - discountPrice;
 
-  changeInnerText('coupon1'," - " + discountPrice);
+  changeInnerText('coupon1', " - " + discountPrice);
   changeInnerText('grand_Total', grandTotal);
 
 
-grandTotal = totalPrice;
+  grandTotal = totalPrice;
 
-changeInnerText('coupon2',"000");
-document.getElementById('discountList-1').classList.remove('hidden')
+  changeInnerText('coupon2', "000");
+  document.getElementById('discountList-1').classList.remove('hidden')
   document.getElementById('discountList-2').classList.add('hidden')
 
 }
-function couponTwoCalculation(number){
+
+function couponTwoCalculation(number) {
   document.getElementById('applyAndInput').classList.add('hidden')
-  
-  
+
+
   let discountPrice = (grandTotal * 20 / 100);
-  grandTotal =  grandTotal - discountPrice ;
-  changeInnerText('coupon2'," - " + discountPrice);
+  grandTotal = grandTotal - discountPrice;
+  changeInnerText('coupon2', " - " + discountPrice);
 
   changeInnerText('grand_Total', grandTotal);
   grandTotal = totalPrice;
